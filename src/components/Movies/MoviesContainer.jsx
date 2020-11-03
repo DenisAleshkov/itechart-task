@@ -16,7 +16,7 @@ class MoviesContainer extends React.Component {
 const mapStateToProps = state => ({ movies: state.movieReducer.movies })
 
 const MapDispatchToProps = dispatch => ({ 
-    setMovies: (page) => dispatch({ type: 'movies/popular' , payload: page}, ),
+    setMovies: (page) => dispatch({ type: 'movies/popular' , payload: page})
 })
 
 
