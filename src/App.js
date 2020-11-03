@@ -1,27 +1,22 @@
 import React from 'react'
-import Movies from './components/Movies/Movies'
+import MoviesContainer from './components/Movies/MoviesContainer'
 import Details from './components/Details/Details'
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from 'react-router-dom'
 class App extends React.Component {
     render() {
         return (
-            <Router>
-                <Switch>
-                    <Route path="/popular">
-                        <Movies />
-                    </Route>
-                    <Route path="/details/:id">
-                        <Details />
-                    </Route>
-
-                </Switch>
-            </Router>
-
+            <div className="app">
+                <Router>
+                    <Switch>
+                        <Route exact path='/' component={MoviesContainer} />
+                        <Route exact path='/details/:id' render = {(props)=><Details {...props} />}/>
+                    </Switch>
+                </Router>
+            </div>
         )
     }
 }
