@@ -19,7 +19,7 @@ const requestMiddleware = store => next => action => {
                 store.dispatch(setMovies(movies.results, movies.page))
             })
             .catch((err)=>{ 
-                console.log('Error', err) 
+                console.log('Error:', err)
                 store.dispatch(setMovies([], null))
             })
     }
