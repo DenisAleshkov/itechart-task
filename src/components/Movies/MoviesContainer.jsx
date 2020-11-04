@@ -1,6 +1,7 @@
 import React from 'react'
 import Movies from './Movies'
 import { connect } from 'react-redux'
+import { requestMovies } from '../../redux/actions'
 
 class MoviesContainer extends React.Component {
     componentDidMount() {
@@ -15,9 +16,6 @@ class MoviesContainer extends React.Component {
 
 const mapStateToProps = state => ({ movies: state.movieReducer.movies })
 
-const MapDispatchToProps = dispatch => ({ 
-    setMovies: (page) => dispatch({ type: 'movies/popular' , payload: page})
-})
-
+const MapDispatchToProps = dispatch => ({ setMovies: (page) => dispatch(requestMovies(page)) })
 
 export default connect(mapStateToProps, MapDispatchToProps)(MoviesContainer)

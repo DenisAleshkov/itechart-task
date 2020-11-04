@@ -1,3 +1,7 @@
+import {
+    SET_MOVIES
+} from './../actions/index'
+
 let initialState = {
    movies: {
        page: null,
@@ -7,7 +11,7 @@ let initialState = {
 
 function MovieReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SET_MOVIES': {
+        case SET_MOVIES: {
             return {
                 ...state,
                 movies:{

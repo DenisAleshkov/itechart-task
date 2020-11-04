@@ -19,7 +19,7 @@ body {
     position: relative;
     display: block;
     width: 800px;
-    height: 350px;
+    height: 400px;
     margin: 80px auto;
     overflow: hidden;
     border-radius: 10px;
@@ -76,6 +76,40 @@ body {
     border-radius: 11px;
 }
 
+.btn .arrow {
+    display: inline-block;
+    line-height: 2.5em;
+    text-align: center;
+    background: #333;
+    color: white;
+    font-size: 1em;
+    width: 2.5em;
+    -webkit-transition: margin 200ms;
+    transition: margin 200ms;
+    margin-left: .75em;
+}
+
+.btn:hover {
+    background: white;
+}
+
+.btn:hover .arrow {
+    margin-left: 1.25em;
+    background-color: #262626;
+}
+
+.btn:active {
+    background: #ccc;
+}
+
+.btn:active .arrow {
+    margin-left: 1.5em;
+}
+
+.right {
+    transform: rotate(180deg);
+}
+
 @media screen and (min-width: 768px) {
     .movie_header {
         width: 65%;
@@ -124,6 +158,7 @@ body {
         background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #e5e6e6), to(transparent));
         background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
         display: inline-grid;
+        padding-right: 25px;
     }
 }
 
@@ -137,38 +172,4 @@ body {
     outline: none;
     text-decoration: none;
     color: #666;
-}
-
-.btn .arrow {
-    display: inline-block;
-    line-height: 2.5em;
-    text-align: center;
-    background: #333;
-    color: white;
-    font-size: 1em;
-    width: 2.5em;
-    -webkit-transition: margin 200ms;
-    transition: margin 200ms;
-    margin-left: .75em;
-}
-
-.btn:hover {
-    background: white;
-}
-
-.btn:hover .arrow {
-    margin-left: 1.25em;
-    background-color: #262626;
-}
-
-.btn:active {
-    background: #ccc;
-}
-
-.btn:active .arrow {
-    margin-left: 1.5em;
-}
-
-.right {
-    transform: rotate(180deg);
 }

@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware  } from 'redux'
-import MovieReducer from './MovieReducer'
-import requestMiddleware from './requestMiddleware'
+import MovieReducer from './reducers/MovieReducer'
+import requestMiddleware from './middleware/requestMiddleware'
 
 let reducers = combineReducers({
     movieReducer: MovieReducer

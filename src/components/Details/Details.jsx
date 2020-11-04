@@ -1,12 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import './../Movies/Movies.css'
 
 class Details extends React.Component {
 
+    constructor(props){
+        super(props)
+        this.state= {
+            redirect: true
+        }
+    }
+
+    componentWillMount(){
+        this.setState({redirect: !!this.props.movies.length})
+    }
+    
     render() {
 
+        if(!this.state.redirect){
+            return <Redirect to='/' />
+        }
+    
         const detailList = this.props.movies.filter(item => item.id === +this.props.match.params.id)[0]
         const date = new Date(detailList.release_date)
         const { 
@@ -18,6 +33,7 @@ class Details extends React.Component {
 
         return (
             <div>
+             
                 <div className="movie_card" id="bright">
                     <div className="info_section">
                         <div className="movie_header">
