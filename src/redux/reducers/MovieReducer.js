@@ -15,7 +15,7 @@ function MovieReducer(state = initialState, action) {
             return {
                 ...state,
                 movies:{
-                    page: action.page,
+                    page: action.page, // SEE THE COMMENT IN "ACTIONS.JS"
                     moviesArray: [...action.payload]
                 }
             }
