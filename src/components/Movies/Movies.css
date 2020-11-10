@@ -50,7 +50,7 @@ body {
     padding-left: 25px;
 }
 
-.movie_card .info_section .movie_header {
+.movie_card .info_section .movie_header { // NEXT TIME PLEASE USE SASS PREPROCCESSOR FOR CSS - IT WILL BE MUCH EASIER TO HANDLE SUCH COMPLICATES CSS SELECTORS
     position: relative;
     padding: 25px 0;
 }
