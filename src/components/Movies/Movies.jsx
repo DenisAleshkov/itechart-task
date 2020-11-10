@@ -4,7 +4,7 @@ import Movie from './Movie'
 class Movies extends React.Component {
     render() {
         
-        const movieList = this.props.movies.moviesArray.map(item => {
+        const movieList = this.props.movies.moviesArray.map(item => { // NO NEED TO CREATE SEPARATE ARRAY OF MOVIES, JUST RENDER IT DIRECTLY IN "render" METHOD OR CREATE A FUNCTION THAT WILL RETURN THIS LIST
             return <Movie
                 key={item.id}
                 id={item.id}
