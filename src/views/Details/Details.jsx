@@ -9,8 +9,7 @@ class Details extends React.Component {
     super(props);
 
     this.state = {
-      redirect: true,
-      movieToShow: {},
+      movieToShow: null,
     };
   }
 
@@ -32,7 +31,7 @@ class Details extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.state.movieToShow).length === 0) {
+    if (!this.state.movieToShow) {
       return false;
     }
 
