@@ -1,6 +1,7 @@
+import axios from "axios";
 import React from "react";
-import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { MOVIE } from "./../../store/api";
 import "./Details.scss";
 
 class Details extends React.Component {
@@ -14,17 +15,25 @@ class Details extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ redirect: !!this.props.movies.length });
-    this.setState({
-      movieToShow: this.props.movies.filter(
-        (movie) => movie.id === this.props.id
-      )[0],
-    });
+    axios
+      .get(MOVIE.GET_DETAILS(this.props.id))
+      .then((response) => {
+        this.setState({
+          movieToShow: response.data,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          movieToShow: {
+            title: `Movies not found: ${error.response.data.status_message}`,
+          },
+        });
+      });
   }
 
   render() {
-    if (!this.state.redirect) {
-      return <Redirect to="/" />;
+    if (Object.keys(this.state.movieToShow).length === 0) {
+      return false;
     }
 
     const {
@@ -65,8 +74,4 @@ class Details extends React.Component {
   }
 }
 
-const MapStateToProps = (state) => ({
-  movies: state.movieReducer.movies.moviesArray,
-});
-
-export default connect(MapStateToProps, null)(Details);
+export default Details;

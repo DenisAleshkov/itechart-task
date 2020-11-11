@@ -31,8 +31,8 @@ class Movies extends React.Component {
 
 const mapStateToProps = (state) => ({ movies: state.movieReducer.movies });
 
-const MapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   requestMovies: (page) => dispatch(requestMovies(page)),
 });
 
-export default connect(mapStateToProps, MapDispatchToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(Movies);
