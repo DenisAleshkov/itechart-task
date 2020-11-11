@@ -1,7 +1,7 @@
 import React from "react";
-import Movie from "./../components/Movies/Movie";
+import Movie from "./components/Movie/Movie";
 import { connect } from "react-redux";
-import { requestMovies } from "./../store/actions/index";
+import { requestMovies } from "./../../store/actions/index";
 
 class Movies extends React.Component {
   componentDidMount() {

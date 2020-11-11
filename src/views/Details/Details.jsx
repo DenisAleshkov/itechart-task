@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import { getMovieById } from "./../store/actions/index";
-import "./../components/Movies/Movies.scss";
+import "./Details.scss";
 
 class Details extends React.Component {
   constructor(props) {
@@ -10,39 +9,17 @@ class Details extends React.Component {
 
     this.state = {
       redirect: true,
-      title: "",
-      date: null,
-      overview: "",
-      poster_path: "",
-      vote_average: null,
-      release_date: "",
+      movieToShow: {},
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ redirect: !!this.props.movies.length });
-    this.props.getMovie(this.props.id);
-  }
-
-  shouldComponentUpdate(nextProps) {
-    if (nextProps !== this.props) {
-      const {
-        title,
-        overview,
-        poster_path,
-        vote_average,
-        release_date,
-      } = nextProps.changedMovie;
-
-      this.setState({
-        title: title,
-        date: new Date(release_date),
-        overview: overview,
-        poster_path: poster_path,
-        vote_average: vote_average,
-      });
-    }
-    return true;
+    this.setState({
+      movieToShow: this.props.movies.filter(
+        (movie) => movie.id === this.props.id
+      )[0],
+    });
   }
 
   render() {
@@ -56,7 +33,7 @@ class Details extends React.Component {
       poster_path,
       vote_average,
       release_date,
-    } = this.state;
+    } = this.state.movieToShow;
 
     return (
       <div>
@@ -90,11 +67,6 @@ class Details extends React.Component {
 
 const MapStateToProps = (state) => ({
   movies: state.movieReducer.movies.moviesArray,
-  changedMovie: state.movieReducer.changedMovie,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  getMovie: (id) => dispatch(getMovieById(id)),
-});
-
-export default connect(MapStateToProps, mapDispatchToProps)(Details);
+export default connect(MapStateToProps, null)(Details);

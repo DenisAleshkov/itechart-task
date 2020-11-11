@@ -1,6 +1,6 @@
 import React from "react";
-import Movies from "./views/Movies";
-import Details from "./views/Details";
+import Movies from "./views/Movies/Movies";
+import Details from "./views/Details/Details";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 class App extends React.Component {

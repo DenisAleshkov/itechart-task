@@ -1,11 +1,10 @@
-import { SET_MOVIES, SET_ERROR, GET_MOVIE_BY_ID } from "./../constants";
+import { SET_MOVIES, SET_ERROR } from "./../constants";
 
 let initialState = {
   movies: {
     page: null,
     moviesArray: [],
   },
-  changedMovie: null,
   error: null,
 };
 
@@ -30,14 +29,6 @@ function MovieReducer(state = initialState, action) {
         },
         id: null,
         erorr: action.payload,
-      };
-    }
-    case GET_MOVIE_BY_ID: {
-      return {
-        ...state,
-        changedMovie: state.movies.moviesArray.filter(
-          (movie) => movie.id === action.payload
-        )[0],
       };
     }
     default: {
